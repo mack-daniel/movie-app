@@ -3,12 +3,15 @@ body {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* overflow: hidden; */
 }
 a {
   text-decoration: none;
+  color: #000;
 }
 button {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -16,12 +19,23 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+.btn {
+  border-radius: 20px;
+  background-color: rgb(245, 197, 24);
+  color: #000;
+}
+.btn {
+  color: #000;
+}
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #1a1a1a;
   padding: 0.6em 1.2em;
+}
+.logo {
+  height: 3rem;
 }
 .search-container {
   width: 50%;
@@ -40,7 +54,6 @@ button {
   font-size: 1em;
   width: 80%;
 }
-
 .movie-container {
   padding: 1% 1rem;
 }
@@ -61,16 +74,15 @@ button {
   display: flex;
   justify-content: start;
   position: relative;
-  /* transition: transform 0.2s; */
+  transition: transform 0.2s;
 }
 .image-container:hover {
   cursor: pointer;
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
   z-index: 10;
   border-radius: 2px;
 }
 .overlay {
-  display: none;
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
   width: 94%;
@@ -79,7 +91,14 @@ button {
   bottom: 0;
   font-size: 20px;
   padding: 10px;
-  text-align: center;
+  /* text-align: center; */
+  transition: all 0.4s;
+}
+.overlay p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .image-container:hover .overlay {

@@ -4,12 +4,21 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../App";
 
 const Navbar = () => {
-  const { search, setSearch } = useContext(AppContext);
+  const { favorites, search, setSearch } = useContext(AppContext);
 
   return (
     <div className="navbar">
+      <Link to="/">
+        <img
+          src="./movie-film-roll-for-movie-svgrepo-com.svg"
+          alt=""
+          className="logo"
+        />
+      </Link>
       <Search search={search} setSearch={setSearch} />
-      {/* <Link to="/favorites">Favorites</Link> */}
+      <button className="btn">
+        <Link to="/favorites">Favorites ({favorites.length})</Link>
+      </button>
     </div>
   );
 };

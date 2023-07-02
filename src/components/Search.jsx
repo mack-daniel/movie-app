@@ -3,17 +3,8 @@ import { AppContext } from "../App";
 import { SearchSharp } from "@mui/icons-material";
 
 const Search = () => {
-  const { search, setSearch, movies, setMovies } = useContext(AppContext);
+  const { search, setSearch } = useContext(AppContext);
 
-  const filteredMovies = (search) => {
-    const newMovies = movies.filter((movie) =>
-      search.toLowerCase().includes(movie)
-    );
-    setMovies(newMovies);
-    console.log(search);
-  };
-
-  // console.log(search);
   return (
     <div className="search-container">
       <input

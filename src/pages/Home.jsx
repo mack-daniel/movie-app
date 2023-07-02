@@ -4,7 +4,8 @@ import MovieList from "../components/MovieList";
 import { AppContext } from "../App";
 
 const Home = () => {
-  const { search, setMovies } = useContext(AppContext);
+  const { favorites, setFavorites, search, movies, setMovies } =
+    useContext(AppContext);
 
   const getApi = async (search) => {
     try {
@@ -29,7 +30,12 @@ const Home = () => {
 
   return (
     <>
-      <MovieList heading={"Movies"} />
+      <MovieList
+        heading={"Movies"}
+        movies={movies}
+        favorites={favorites}
+        setFavorites={setFavorites}
+      />
     </>
   );
 };
