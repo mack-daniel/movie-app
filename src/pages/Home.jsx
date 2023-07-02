@@ -4,12 +4,12 @@ import MovieList from "../components/MovieList";
 import { AppContext } from "../App";
 
 const Home = () => {
-  const { search, movies, setMovies } = useContext(AppContext);
+  const { search, setMovies } = useContext(AppContext);
 
   const getApi = async (search) => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${search}&ie&apikey=98664472`
+        `https://www.omdbapi.com/?s=${search}&ie&apikey=98664472`
       );
       if (response.data.Search) {
         setMovies(response.data.Search);
@@ -20,8 +20,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // getApi();
-    console.log("searcg");
     if (search === "") {
       getApi("guardians");
     } else {
