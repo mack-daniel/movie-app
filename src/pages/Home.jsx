@@ -28,6 +28,15 @@ const Home = () => {
     }
   }, [search]);
 
+  useEffect(() => {
+    const movieFavorites = JSON.parse(
+      localStorage.getItem("movie-app-favorites")
+    );
+    if (movieFavorites) {
+      setFavorites(movieFavorites);
+    }
+  }, []);
+
   return (
     <>
       <MovieList

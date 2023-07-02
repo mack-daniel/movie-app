@@ -5,10 +5,15 @@ import { Favorite } from "@mui/icons-material";
 const MovieList = ({ heading, movies }) => {
   const { favorites, setFavorites } = useContext(AppContext);
 
+  const saveToLocalStorage = (item) => {
+    localStorage.setItem("movie-app-favorites", JSON.stringify(item));
+  };
+
   const addToFavorites = (movie) => {
     if (!favorites.includes(movie)) {
       const newFavoriteList = [...favorites, movie];
       setFavorites(newFavoriteList);
+      saveToLocalStorage(newFavoriteList);
     }
   };
 
@@ -17,8 +22,9 @@ const MovieList = ({ heading, movies }) => {
       (favourite) => favourite.imdbID !== movie.imdbID
     );
     setFavorites(newFavoriteList);
-    console.log(favorites);
+    saveToLocalStorage(newFavoriteList);
   };
+
   return (
     <div className="movie-container">
       <h1>{heading}</h1>
